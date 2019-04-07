@@ -7,6 +7,7 @@ function makeGraphs(error, resultsData){
     
     show_gender_balance(ndx);
     show_subject_ratio(ndx);
+    show_grade_ratio(ndx);
     
     dc.renderAll();
     
@@ -34,6 +35,18 @@ function show_subject_ratio(ndx){
         .radius(120)
         .dimension(subject_dim)
         .group(total_subjects)
+        .transitionDuration(1500);
+}
+
+function show_grade_ratio(ndx){
+    var grade_dim = ndx.dimension(dc.pluck('grade'))
+    var total_grade = grade_dim.group();
+    
+    dc.pieChart("#grade-ratio")
+        .height(300)
+        .radius(120)
+        .dimension(grade_dim)
+        .group(total_grade)
         .transitionDuration(1500);
 }
 
