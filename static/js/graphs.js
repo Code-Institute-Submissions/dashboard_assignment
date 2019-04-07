@@ -61,9 +61,17 @@ function show_average_result_per_subject(ndx){
         p.average = p.total/p.count;
         return p;
     }
-}
-
-
-
-
-
+    
+    function remove_item(p, v){
+        p.count--;
+        if(p.count == 0){
+            p.total = 0;
+            p.average= 0;
+        } else{
+            p.total-= v.result;
+            p.average = p.total/p.count;
+        }
+            return p;
+    }
+    
+}    
