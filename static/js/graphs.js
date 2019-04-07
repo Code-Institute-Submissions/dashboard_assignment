@@ -5,6 +5,10 @@ queue()
 function makeGraphs(error, resultsData){
     var ndx = crossfilter(resultsData);
     
+    resultsData.forEach(function (d){
+        d.result = parseInt(d.result);
+    });
+    
     show_gender_balance(ndx);
     show_subject_ratio(ndx);
     show_grade_ratio(ndx);
@@ -53,7 +57,7 @@ function show_grade_ratio(ndx){
 
 
 function show_average_result_per_subject(ndx){
-    var average_dim = ndx.dimension(dc.pluck('discipline'));
+    var average_dim = ndx.dimension(dc.pluck("discipline"));
     
     function add_item(p, v){
         p.count++;
@@ -64,20 +68,35 @@ function show_average_result_per_subject(ndx){
     
     function remove_item(p, v){
         p.count--;
-        if(p.count == 0){
+        if(p.count == 0) {
             p.total = 0;
-            p.average= 0;
+            p.average = 0;
         } else{
-            p.total-= v.result;
-            p.average = p.total/p.count;
+            p.total -= v.result;
+            p.average = p.total / p.count;
         }
             return p;
     }
     
-    function initialise(){
-        return {count:0, total: 0, average: 0};
+    function initialise() {
+        return {count: 0, total: 0, average: 0};
     }
     
     var averageResultBySubject = average_dim.group().reduce(add_item, remove_item, initialise);
     
-}    
+    dc.barChart("#average-result")
+        .width(350)
+        .height(250)
+        .margins({top: 10, right: 50, bottom: 30, left: 50})
+        .dimension(average_dim)
+        .group(averageResultBySubject)
+        .valueAccessor(function(d){
+            return d.value.average.toFixed(2);
+        })
+        .transitionDuration(500)
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .elasticY(false)
+        .xAxisLabel("Subject")
+        .yAxis().ticks(6);
+}
