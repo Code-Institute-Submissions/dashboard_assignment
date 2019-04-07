@@ -74,4 +74,10 @@ function show_average_result_per_subject(ndx){
             return p;
     }
     
+    function initialise(){
+        return {count:0, total: 0, average: 0};
+    }
+    
+    var averageResultBySubject = average_dim.group().reduce(add_item, remove_item, initialise);
+    
 }    
