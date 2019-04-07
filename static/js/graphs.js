@@ -20,6 +20,7 @@ function makeGraphs(error, resultsData){
     show_correlation_between_age_and_result(ndx);
     
     show_percent_that_are_honour_male(ndx, "Male", "#show_percent_that_are_honour_male");
+    show_percent_that_are_honour_female(ndx, "Female", "#show_percent_that_are_honour_female");
     
     
     
@@ -232,4 +233,44 @@ function show_percent_that_are_honour_male(ndx, sex, element){
             }
         })
         .group(percentageThatAreHonourMale)
+}
+
+function show_percent_that_are_honour_female(ndx, sex, element){
+
+    var percentageThatAreHonourFemale = ndx.groupAll().reduce(
+        function(p, v) {
+            if (v.sex === sex) {
+                p.count++;
+                if(v.result >= 70) {
+                    p.are_honour++;
+                }
+                
+            }
+            return p;
+        },
+        
+        function(p, v) {
+            if (v.sex === sex) {
+                p.count--;
+                if(v.result >= 70) {
+                    p.are_honour--;
+                }
+            }
+            return p;
+        },
+        function() {
+            return {count: 0, are_honour: 0};    
+        },
+    );
+    
+    dc.numberDisplay(element)
+        .formatNumber(d3.format(".2%"))
+        .valueAccessor(function (d) {
+            if (d.count == 0) {
+                return 0;
+            } else {
+                return (d.are_honour / d.count);
+            }
+        })
+        .group(percentageThatAreHonourFemale)
 }
