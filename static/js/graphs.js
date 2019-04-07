@@ -6,14 +6,20 @@ function makeGraphs(error, resultsData){
     var ndx = crossfilter(resultsData);
     
     resultsData.forEach(function (d){
+        d.age = parseInt(d.age);
         d.result = parseInt(d.result);
     });
     
     show_gender_balance(ndx);
     show_subject_ratio(ndx);
     show_grade_ratio(ndx);
+    
     show_average_result_per_subject(ndx);
     show_average_result_by_gender(ndx);
+    
+    show_correlation_between_age_and_result(ndx);
+    
+    
     
     dc.renderAll();
     
@@ -146,4 +152,42 @@ function show_average_result_by_gender(ndx){
         .elasticY(false)
         .xAxisLabel("Gender")
         .yAxis().ticks(6);
+}
+
+
+function show_correlation_between_age_and_result(ndx) {
+     var ageColors = d3.scale.ordinal()
+        .domain(["Female", "Male"])
+        .range(["orange", "blue"]);
+        
+    var resultDim = ndx.dimension(dc.pluck("result"));
+    var studentResultDim = ndx.dimension(function(d){
+        return [d.result, d.age, d.sex];
+    });
+    
+    var resultGroup = studentResultDim.group();
+    
+    var minResult = resultDim.bottom(1)[0].result;
+    var maxResult = resultDim.top(1)[0].result;
+    
+    dc.scatterPlot("#correlation_between_age_and_result")
+       .width(600)
+       .height(300)
+       .dimension(studentResultDim)
+       .group(resultGroup)
+       .x(d3.scale.linear().domain([minResult, maxResult]))
+       .brushOn(false)
+       .symbolSize(8)
+       .clipPadding(10)
+       .yAxisLabel("Age")
+       .xAxisLabel("Result")
+       .title(function(d) {
+            return " Score: " + d.key[0];
+        })
+        .colorAccessor(function (d) {
+            return d.key[2];
+        })
+       .colors(ageColors)
+       .margins({top: 10, right: 50, bottom: 75, left: 75})
+       .yAxis().ticks(6);
 }
