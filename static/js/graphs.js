@@ -8,6 +8,7 @@ function makeGraphs(error, resultsData){
     show_gender_balance(ndx);
     show_subject_ratio(ndx);
     show_grade_ratio(ndx);
+    show_average_result_per_subject(ndx);
     
     dc.renderAll();
     
@@ -49,6 +50,20 @@ function show_grade_ratio(ndx){
         .group(total_grade)
         .transitionDuration(1500);
 }
+
+
+function show_average_result_per_subject(ndx){
+    var average_dim = ndx.dimension(dc.pluck('discipline'));
+    
+    function add_item(p, v){
+        p.count++;
+        p.total += v.result;
+        p.average = p.total/p.count;
+        return p;
+    }
+}
+
+
 
 
 
