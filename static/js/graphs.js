@@ -13,6 +13,7 @@ function makeGraphs(error, resultsData){
     show_subject_ratio(ndx);
     show_grade_ratio(ndx);
     show_average_result_per_subject(ndx);
+    show_average_result_by_gender(ndx);
     
     dc.renderAll();
     
@@ -57,7 +58,7 @@ function show_grade_ratio(ndx){
 
 
 function show_average_result_per_subject(ndx){
-    var average_dim = ndx.dimension(dc.pluck("discipline"));
+    var subject_average_dim = ndx.dimension(dc.pluck("discipline"));
     
     function add_item(p, v){
         p.count++;
@@ -82,21 +83,67 @@ function show_average_result_per_subject(ndx){
         return {count: 0, total: 0, average: 0};
     }
     
-    var averageResultBySubject = average_dim.group().reduce(add_item, remove_item, initialise);
+    var averageResultBySubject = subject_average_dim.group().reduce(add_item, remove_item, initialise);
     
-    dc.barChart("#average-result")
+    dc.barChart("#average-result-by-subject")
         .width(350)
         .height(250)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
-        .dimension(average_dim)
+        .dimension(subject_average_dim)
         .group(averageResultBySubject)
         .valueAccessor(function(d){
-            return d.value.average.toFixed(2);
+            return d.value.average.toFixed(1);
         })
         .transitionDuration(500)
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .elasticY(false)
         .xAxisLabel("Subject")
+        .yAxis().ticks(6);
+}
+
+function show_average_result_by_gender(ndx){
+    
+    var gender_average_dim = ndx.dimension(dc.pluck("sex"));
+    
+    function add_item(p, v){
+        p.count++;
+        p.total += v.result;
+        p.average = p.total/p.count;
+        return p;
+    }
+    
+    function remove_item(p, v){
+        p.count--;
+        if(p.count == 0) {
+            p.total = 0;
+            p.average = 0;
+        } else{
+            p.total -= v.result;
+            p.average = p.total / p.count;
+        }
+            return p;
+    }
+    
+    function initialise() {
+        return {count: 0, total: 0, average: 0};
+    }
+    
+    var averageResultByGender = gender_average_dim.group().reduce(add_item, remove_item, initialise);
+    
+    dc.barChart("#average-result-by-gender")
+        .width(350)
+        .height(250)
+        .margins({top: 10, right: 50, bottom: 30, left: 50})
+        .dimension(gender_average_dim)
+        .group(averageResultByGender)
+        .valueAccessor(function(d){
+            return d.value.average.toFixed(1);
+        })
+        .transitionDuration(500)
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .elasticY(false)
+        .xAxisLabel("Gender")
         .yAxis().ticks(6);
 }
