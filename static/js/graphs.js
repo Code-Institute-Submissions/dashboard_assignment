@@ -98,7 +98,7 @@ function show_average_result_per_subject(ndx){
     var averageResultBySubject = subject_average_dim.group().reduce(add_item, remove_item, initialise);
     
     dc.barChart("#average-result-by-subject")
-        .width(350)
+        .width(300)
         .height(250)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
         .dimension(subject_average_dim)
@@ -144,7 +144,7 @@ function show_average_result_by_gender(ndx){
     var averageResultByGender = gender_average_dim.group().reduce(add_item, remove_item, initialise);
     
     dc.barChart("#average-result-by-gender")
-        .width(350)
+        .width(300)
         .height(250)
         .margins({top: 10, right: 50, bottom: 30, left: 50})
         .dimension(gender_average_dim)
