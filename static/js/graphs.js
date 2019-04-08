@@ -36,7 +36,7 @@ function show_gender_balance(ndx){
     var group = dim.group();
     
     dc.pieChart("#gender-balance")
-        .height(300)
+        .height(400)
         .radius(120)
         .dimension(dim)
         .group(group)
@@ -49,7 +49,7 @@ function show_subject_ratio(ndx){
     var total_subjects = subject_dim.group();
     
     dc.pieChart("#subject-ratio")
-        .height(300)
+        .height(400)
         .radius(120)
         .dimension(subject_dim)
         .group(total_subjects)
@@ -61,7 +61,7 @@ function show_grade_ratio(ndx){
     var total_grade = grade_dim.group();
     
     dc.pieChart("#grade-ratio")
-        .height(300)
+        .height(400)
         .radius(120)
         .dimension(grade_dim)
         .group(total_grade)
@@ -177,8 +177,8 @@ function show_correlation_between_age_and_result(ndx) {
     var maxResult = resultDim.top(1)[0].result;
     
     dc.scatterPlot("#correlation_between_age_and_result")
-       .width(600)
-       .height(300)
+       .width(800)
+       .height(400)
        .dimension(studentResultDim)
        .group(resultGroup)
        .x(d3.scale.linear().domain([minResult, maxResult]))
