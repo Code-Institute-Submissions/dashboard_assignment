@@ -59,5 +59,12 @@ html,body{
 }
 
 
+@media screen and (max-device-width: 800px) and (orientation:landscape){
+   .landscape{
+       display: show-for-landscape;
+       
+   }
+}
+
 
 
