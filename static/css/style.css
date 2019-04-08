@@ -16,13 +16,18 @@
 	margin-right: 75px;
 }
 
-.number-box, .fa.fa-gender {
+.number-box, .fa.fa-icon {
     font-size: 30px;
     font-weight: 500;
 }
 
-.fa-gender {
+.fa-icon {
 	margin-right: 10px;
+}
+
+.fa.fa-subject{
+    font-size:30px;
+    font-weight: 500;
 }
 
 .custom-chart {
