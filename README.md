@@ -23,3 +23,29 @@ In this section, I will describe the user available features which this project 
 *	**Number Boxes** – Floating numbers which denote the percentage by gender who achieved a result of 70% or more. There are also number boxes organised by subject which reflect the same principle.
 
 
+Technologies Used
+---
+The following list contains all technologies used in the creation of this project.
+
+* **Javascript**
+  * Used to programme the dataset to a visual and interactive display.
+* **HTML**
+  * The project uses HTML as the mark-up language. 
+* **CSS**
+  * The project uses CSS to style the HTML elements.
+* **Bootstrap**
+  * Used to add further style to the project. Link provided [here]( https://getbootstrap.com/).
+* **Bootswatch**
+  * For the stylish navbar theme. Link provided [here](https://bootswatch.com/3/) 
+* **dc.js** 
+  * dc library used for dimensional charting in graph.js. Link provided [here](https://dc-js.github.io/dc.js/).
+* **D3** 
+  * d3 library used for data visualisation in graph.js. Link provided [here](https://d3js.org/)
+* **Crossfilter**
+  * Used to filter the dataset. Link provided [here](http://square.github.io/crossfilter/).  
+* **Queue**
+  * Used to load the dataset for graph.js.
+* **Font Awesome**
+  * Used to add visual icons for the Honour Roll section of the project. Link provided [here]( https://fontawesome.com/).
+* **Google Fonts**
+  * Used to add specific a pecific font to the HTML text. Link provided [here]( https://fonts.google.com/).
