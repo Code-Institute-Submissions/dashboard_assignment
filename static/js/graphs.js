@@ -11,6 +11,8 @@ function makeGraphs(error, resultsData){
     });
     
     show_discipline_selector(ndx);
+    show_gender_selector(ndx);
+    
     show_gender_balance(ndx);
     show_subject_ratio(ndx);
     show_grade_ratio(ndx);
@@ -39,6 +41,16 @@ function show_discipline_selector(ndx){
     dc.selectMenu("#discipline-selector")
        .dimension(subject_dim)
        .group(total_subjects);
+    
+}
+
+function show_gender_selector(ndx){
+    var gender_dim = ndx.dimension(dc.pluck('sex'))
+    var gender_group = gender_dim.group();
+    
+    dc.selectMenu("#gender-selector")
+       .dimension(gender_dim)
+       .group(gender_group);
     
 }
 
