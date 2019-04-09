@@ -22,6 +22,10 @@ In this section, I will describe the user available features which this project 
 *	**Scatterplot** – Represents the relationship between the age of the student and the student’s result.  The scatterplot is not interactive with the user. However, the results will filter if the user is interactive with any other chart on the page. All charts are responsive to each other.
 *	**Number Boxes** – Floating numbers which denote the percentage by gender who achieved a result of 70% or more. There are also number boxes organised by subject which reflect the same principle.
 
+**Features Left to Implement**
+
+* I hope to make the scatterplot available to mobile users soon.
+
 
 Technologies Used
 ---
