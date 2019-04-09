@@ -12,6 +12,7 @@ function makeGraphs(error, resultsData){
     
     show_discipline_selector(ndx);
     show_gender_selector(ndx);
+    show_grade_selector(ndx);
     
     show_gender_balance(ndx);
     show_subject_ratio(ndx);
@@ -53,6 +54,16 @@ function show_gender_selector(ndx){
        .group(gender_group);
     
 }
+
+function show_grade_selector(ndx){
+    var grade_dim = ndx.dimension(dc.pluck('grade'))
+    var grade_group = grade_dim.group();
+    
+    dc.selectMenu("#grade-selector")
+       .dimension(grade_dim)
+       .group(grade_group);
+}
+
 
 function show_gender_balance(ndx){
     var dim = ndx.dimension(dc.pluck('sex'));
