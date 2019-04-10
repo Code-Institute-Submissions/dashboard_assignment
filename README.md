@@ -50,7 +50,7 @@ You can find mockups of how this project was planned to look below and also in m
 
 **Honour Roll**
 
-<img src="mockups/Honour-mockup.jpeg" alt="drawing" width="200"/>
+<img src="mockups/Honour.jpeg" alt="drawing" width="200"/>
 
 
 Features
