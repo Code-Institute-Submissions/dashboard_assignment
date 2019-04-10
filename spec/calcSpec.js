@@ -38,6 +38,31 @@ describe("Calculator", function() {
             calc.add(12);
             expect(calc.value).toBe(59);
         });
-    });    
+    });   
+    
+    //An example scenario where we want to find how many students are left in the Gender Balance if Maths is taken from the Subject Ratio//
+    
+     describe("Pie function", function() {
+        it("should return 38", function() {
+            calc.add(20);
+            calc.add(39);
+            calc.minus(21);
+            expect(calc.value).toBe(38);
+        });
+        
+    });
+    
+    //An example scenario where we want to find how many students are left in the Grade Ratio has A & B taken away with only the three other grades remaining.//
+    
+     describe("Pie function", function() {
+        it("should return 38", function() {
+            calc.add(20);
+            calc.add(39);
+            calc.minus(22);
+            calc.minus(12);
+            expect(calc.value).toBe(25);
+        });
+        
+    });
 });    
     
