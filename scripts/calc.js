@@ -28,3 +28,13 @@ Calculator.prototype.divide = function(number) {
     }
 };
 
+Calculator.prototype.multiply = function(number) {
+    if (typeof(number) == "number") {
+        this.value *= number;
+    } else {
+        alert("Argument must be a number");
+    }
+};
+
+
+
