@@ -1,9 +1,15 @@
 //Gender Balance Pie Chart Numbers//
 
-describe ("Calculator", function(){
-    describe("Addition test", function(){
-        it ("should return 59", function(){
-            expect(addition(20, 39)).toBe(59);
-        });
-    })
-})
+Calculator = function() {
+    this.value = 0;
+};
+
+Calculator.prototype.add = function(number) {
+    if (typeof(number) == "number") {
+        this.value += number;
+    } else {
+        alert("Argument must be a number");
+    }
+};
+
+
