@@ -9,8 +9,13 @@ Statistical analysis is something which is vital to understanding sociological t
 
 For example, the Midterm Report Calculator can be used to find a particular age group or gender who have struggled the most with their midterm and from that data collection, the issue can be investigated and reviewed further so that the standards of the course can change and improve over time – thereby saving time and money on resources which may not address the issue directly.
 
+Demo
+---
+
+A live demo of this project can be found [here](https://martincurran28.github.io/dashboard_assignment/).
+
 UX
-===
+---
 
 The Midterm Report Calculator dashboard is aimed at users who coordinate such subjects and wish to understand what this data could tell them about the way they are currently presenting their course to students. The dashboard presents an opportunity for a department to self-critique and ask pertinent questions in order to better their methods of instruction and allow the student to achieve their learning outcomes. Data such as this is invaluable to a department in understanding who they should cater to and how best to present and test the material to students.
 
