@@ -96,3 +96,23 @@ The following list contains all technologies used in the creation of this projec
   * Used to add visual icons for the Honour Roll section of the project. Link provided [here]( https://fontawesome.com/).
 * **Google Fonts**
   * Used to add specific a pecific font to the HTML text. Link provided [here]( https://fonts.google.com/).
+
+Credits
+---
+**Content**
+
+* All content for this dashboard was written by me. The survey data used was also devised and written by me.
+
+**Media**
+
+* No photos, videos or media content were used in this dashboard project.
+
+**Acknowledgements**
+
+* My thanks to the lecturers and coordinators at Code Institute for their tutorials and instruction throughout the Interactive Frontend Development module. Their website can be found [here]( https://codeinstitute.net/).
+* A very useful tutorial on how to deploy the project using GitHub Pages. Click [here]( https://www.youtube.com/watch?v=TUJekd0reVQ) for the video.
+* The full navbar I used for this project was taken from the Bootswatch website and you can find the full HTML code for the navbar on [this]( https://bootswatch.com/flatly/) page.
+* Lastly, to my parents, Seamus and Susan, for their constant support and help throughout the prep and creation of this Milestone project.
+
+
+
