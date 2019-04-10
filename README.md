@@ -30,7 +30,7 @@ You can find mockups of how this project was planned to look below and also in m
 
 **index.html**
 
-<img src="mockups/all-together.jpeg" alt="photo" width="200"/>
+<img src="mockups/all-together.jpg" alt="photo" width="200"/>
 
 **Navbar**
 
@@ -46,7 +46,7 @@ You can find mockups of how this project was planned to look below and also in m
 
 **Correlation**
 
-<img src="mockups/Correlation.jpeg" alt="drawing" width="200"/>
+<img src="mockups/correlation.jpeg" alt="drawing" width="200"/>
 
 **Honour Roll**
 
