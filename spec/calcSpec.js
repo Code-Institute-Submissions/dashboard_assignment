@@ -267,14 +267,6 @@ describe("Calculator", function() {
         });
         
     });
-
-
-    
-    
-    
-    
-    
-    
     
 });    
 
