@@ -121,6 +121,13 @@ I also tested the logic I had written for specific parts of the dashboard. The a
 Although it was explained that graphs aren’t responsive, it was important to me to use a solid grid system to make the most of the dashboard’s presentation. Especially on multiple devices. The major display difference between desktop and mobile is the arrangement of elements. The sections change from a horizontal to vertical arrangement on mobile devices and tablets (with the exception of the iPad Pro). Each page of the site was tested across three different browsers (Google Chrome, Safari, Firefox) on multiple mobile devices (iPhone 6, 7, 8, iPad, iPad Pro, Pixel, Pixel 2, Samsung Galaxy) to ensure compatibility and responsiveness. One particular except is the scatter plot which is not available on mobile. However, I did configure a show-for-landscape media query for tablet: ‘@media screen and (max-device-width: 800px) and (orientation: landscape)‘. This is a feature which I hope to integrate to mobile devices in the very immediate future.
 
 
+Deployment
+---
+
+This site is hosted using GitHub pages, deployed directly from a separate git branch called “gh-pages” as opposed to the master branch. Through the command line, I created the new branch by using this command: `git checkout –b gh-pages`. I then push my branch using `git push origin gh-push`. After inputting my GitHub credentials, I was given the URL to the deployed page where my project was hosted.
+
+To run this code locally, you may clone this repository from the **Clone or Download** button at the top of the page and writing git clone followed by that URL you have cloned into an editor. To cut ties with Github use `git remote rm origin` in your terminal.
+
 
 Credits
 ---
