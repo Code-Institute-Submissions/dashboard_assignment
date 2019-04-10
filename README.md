@@ -26,10 +26,31 @@ The **Correlation Between Age & Result** section is for any user interested in t
 
 The **Honour Roll** section is the final feature of the dashboard and it is divided into two sections: gender and subject. Any user interested in figuring out the percentage of students who achieved over 70% or more in the midterm can check this section along with the percentage per subject where this feat was achieved. These number boxes are interactive and, again, the user can manipulate the data using any other interactive Chart or Filter Selector on the page. This feature is for any user interested in knowing the success rate by student and subject in order to better understand whether a course’s success rate is in need of review and improved.
 
-You can find mockups of how this project was planned to look below and also in my Github under the mockups folder.
+You can find mockups of how this project was planned to look below and also in my Github under the **mockups** folder.
 
+**index.html**
 
+<img src="mockups/all-together.jpeg" alt="photo" width="200"/>
 
+**Navbar**
+
+<img src="mockups/nav.jpeg" alt="photo" width="200"/>
+
+**Basic Findings**
+
+<img src="mockups/basic-findings.jpeg" alt="drawing" width="200"/>
+
+**Averages**
+
+<img src="mockups/Averages.jpeg" alt="drawing" width="200"/>
+
+**Correlation**
+
+<img src="mockups/Correlation.jpeg" alt="drawing" width="200"/>
+
+**Honour Roll**
+
+<img src="mockups/Honour-mockup.jpeg" alt="drawing" width="200"/>
 
 
 Features
