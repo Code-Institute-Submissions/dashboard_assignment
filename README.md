@@ -156,7 +156,7 @@ The result was further verified by a page refresh to check that this value was c
 	});
 	```
 
-The Honour Roll section was tested in a similar way. I wanted to test how power the logic for this section could get, so I devised a test to measure whether the female number box would only display the number of females who achieved over 70% for all three subjects or whether it could give the expected value when subjects are filtered. If the user wanted to see the number of female students who achieved 70% or more in Irish, the fraction is 1/6(only one female achieved this feat out of six in total taking the subject). In this case, the fraction is multiplied by 100 and the correct values is (rounded up) to 16.67 on the graph. This result was further verified by a page refresh to check that this value was correct. You can note the test below:
+The **Honour Roll** section was tested in a similar way. I wanted to test how power the logic for this section could get, so I devised a test to measure whether the female number box would only display the number of females who achieved over 70% for all three subjects or whether it could give the expected value when subjects are filtered. If the user wanted to see the number of female students who achieved 70% or more in Irish, the fraction is 1/6(only one female achieved this feat out of six in total taking the subject). In this case, the fraction is multiplied by 100 and the correct values is (rounded up) to 16.67 on the graph. This result was further verified by a page refresh to check that this value was correct. You can note the test below:
 
     ```
     describe("Honour function", function() {
@@ -168,9 +168,11 @@ The Honour Roll section was tested in a similar way. I wanted to test how power 
 	    });
 	        
 	});
-   ```
+	```
+	
    
 For manual testing, I checked the functionality of each graph in respect of the automated tested I had undertaken to ensure the results and data were appearing appropriately and as expected. Although it was explained that graphs aren’t responsive, it was important to me to use a solid grid system to make the most of the dashboard’s presentation. Especially on multiple devices. The major display difference between desktop and mobile is the arrangement of elements. The sections change from a horizontal to vertical arrangement on mobile devices and tablets (with the exception of the iPad Pro). Each page of the site was tested across three different browsers (Google Chrome, Safari, Firefox) on multiple mobile devices (iPhone 6, 7, 8, iPad, iPad Pro, Pixel, Pixel 2, Samsung Galaxy) to ensure compatibility and responsiveness. One particular except is the scatter plot which is not available on mobile. However, I did configure a show-for-landscape media query for tablet: ‘@media screen and (max-device-width: 800px) and (orientation: landscape)‘. This is a feature which I hope to integrate to mobile devices in the very immediate future.
+
 
 Deployment
 ---
