@@ -110,16 +110,67 @@ Testing
 
 The stories shared in the UX section all achieve their expected purpose and the dashboard is a great visual and interactive data resource for users and educational departments to benefit and study from.
 
-I used Jasmine for automated testing to make sure my graphs and data displayed the information correctly and, given the interactive nature of these charts to each other, I planned and configured specific tests to make sure they operated together in the most harmonious way possible when a filter (or filters) are applied. The tests I undertook were maths-based and tested whether I had implemented my desired logic correctly in every situation which may arise. 
+To ensure this, I used Jasmine for automated testing to make sure my graphs and data displayed the information correctly. Given the interactive nature of these charts to each other, I planned and configured specific tests to make sure they operated together in the most harmonious way possible when a filter (or filters) are applied. The tests I undertook were maths-based and tested whether I had implemented my desired logic correctly in every situation which may arise. 
 
-I first tested for default display. For example, each time a user opens the dashboard, I had to make sure the Gender Balance pie chart starts with exactly 20 female and 39 male students to make up the total. A similar test was applied to nearly every other graph and numberbox except for the scatter plot. I decided to manually test the correlation graph as it seems more user-orientated than the other graphs I plotted, and therefore I believe a manual approach to its testing was for the best. For the scatterplot, I had to manually make sure the dots appeared and disappeared according to which filter was being implemented. However, the feature is functional and works well.
+I began by testing for the default display so that each time a user opens the dashboard they are immediately presented with the correct starting data. In order to test this, I used a calculator prototype function which allowed me to add, subtract, divide and multiply for my results. It seemed like the best way of testing logic that was very maths based. An example of a default setting test which I used was for the Gender Balance pie chart where I have to make sure the dashboard opens with exactly 20 female and 39 male students to make up the total of 59 participants. The test was simply a matter of adding the total number of males to females with the expected value as the test value being tested. The result was further verified by a page refresh to check that this value was correct. You can note the test below:
+           
+    ```
+    describe("Addition function", function() {
+	   it("should return 59", function() {
+	       calc.add(20);
+	       calc.add(39);
+	       expect(calc.value).toBe(59);
+	   });
+	        
+	});
+    ```
 
-After I tested the graphs’ default display, I started to test their functionality when filters were applied. One of the tests I used was selecting the English and Irish in Basic Findings, thereby narrowing the filter from three subjects to two, and then making sure the female number box in the Honour Roll section changed accordingly from 35.00% (for three subjects) to 31.25% (for two subjects) to reflect the change in data.
+A similar default test was applied to nearly every other graph and numberbox except for the scatter plot. I decided to manually test the correlation graph as it seems more user-orientated than the other graphs I plotted, and therefore I believe a manual approach to its testing was for the best. For the scatterplot, I had to manually make sure the dots appeared and disappeared according to which filter was being implemented. This feature is functional and works well.
 
-I also tested the logic I had written for specific parts of the dashboard. The automated testing gave me an opportunity to go back over the logic I had prepared to make sure it worked effectively. My averages section, for example, were put to the test as not only did my averages logic have to pass the test for its default value of overall average when the page begins, but also account for the change in data if a user applied filters to their search for more refined average counts. In tests like these, I found out that it was important to note the changing values you should expect if such filters are used and then test to see if that logic works as expected. This is a rule I tried to follow while preparing these suites. I consistently worked out the expected values and tested the code against that value. The Honour Roll section was tested in a similar way
+After I tested the graphs’ default display, I started to test their functionality when filters were applied. One of the tests I used was selecting the English and Irish in Basic Findings, thereby narrowing the filter from three subjects to two, and then making sure the female number box in the Honour Roll section changed accordingly from 35.00% (for three subjects) to 31.25% (for two subjects) to reflect the change in data. In this case, the number of females to achieve the 70% or more is a fraction of 5/16 (five females achieved the honour out the total number of females in both subjects). Therefore, the test had to be the following in order to achieve a percentage and pass. The result was further verified by a page refresh to check that this value was correct. You can note the test below:
 
-Although it was explained that graphs aren’t responsive, it was important to me to use a solid grid system to make the most of the dashboard’s presentation. Especially on multiple devices. The major display difference between desktop and mobile is the arrangement of elements. The sections change from a horizontal to vertical arrangement on mobile devices and tablets (with the exception of the iPad Pro). Each page of the site was tested across three different browsers (Google Chrome, Safari, Firefox) on multiple mobile devices (iPhone 6, 7, 8, iPad, iPad Pro, Pixel, Pixel 2, Samsung Galaxy) to ensure compatibility and responsiveness. One particular except is the scatter plot which is not available on mobile. However, I did configure a show-for-landscape media query for tablet: ‘@media screen and (max-device-width: 800px) and (orientation: landscape)‘. This is a feature which I hope to integrate to mobile devices in the very immediate future.
+	```
+	describe("Honour function", function() {
+		  it("should return 16.666666666666664", function() {
+		      calc.add(5);
+		      calc.divide(16);
+		      calc.multiply(100);
+		      expect(calc.value).toBe(31.25);
+		});
+		        
+	});
+    ```
 
+I also tested the logic I had written for specific parts of the dashboard. Automated testing gave me an opportunity to go back over the logic I had prepared to make sure it was working effectively. My averages section, for example, were put to the test as not only did the logic have to pass the test for its default value of overall average when the page begins, but also account for the change in data if a user applied filters to their search for more refined average counts. In tests like these, I found out that it was important to note the changing values you should expect if such filters are used and then test to see if that logic works through that expected result. This is a rule I tried to follow while preparing these suites. I consistently worked out the expected values and tested the code against that value. An example of such a test for the averages section was testing the value of the male average if the user selected only one subject, English. To find the average, I had to find the total midterm results for all male students (605) and divide it by the number of male students taking English (9). 
+
+The result was further verified by a page refresh to check that this value was correct. You can note the test below:
+
+	```     
+	describe("Average function", function() {
+        it("should return 67.22222222222223", function() {
+	       calc.add(605);
+	       calc.divide(9);
+	       ex-pect(calc.value).toBe(67.22222222222223);
+	    });
+	        
+	});
+	```
+
+The Honour Roll section was tested in a similar way. I wanted to test how power the logic for this section could get, so I devised a test to measure whether the female number box would only display the number of females who achieved over 70% for all three subjects or whether it could give the expected value when subjects are filtered. If the user wanted to see the number of female students who achieved 70% or more in Irish, the fraction is 1/6(only one female achieved this feat out of six in total taking the subject). In this case, the fraction is multiplied by 100 and the correct values is (rounded up) to 16.67 on the graph. This result was further verified by a page refresh to check that this value was correct. You can note the test below:
+
+    ```
+    describe("Honour function", function() {
+	    it("should return 16.666666666666664", function() {
+	       calc.add(1);
+	       calc.divide(6);
+	       calc.multiply(100);
+	       ex-pect(calc.value).toBe(16.666666666666664);
+	    });
+	        
+	});
+   ```
+   
+For manual testing, I checked the functionality of each graph in respect of the automated tested I had undertaken to ensure the results and data were appearing appropriately and as expected. Although it was explained that graphs aren’t responsive, it was important to me to use a solid grid system to make the most of the dashboard’s presentation. Especially on multiple devices. The major display difference between desktop and mobile is the arrangement of elements. The sections change from a horizontal to vertical arrangement on mobile devices and tablets (with the exception of the iPad Pro). Each page of the site was tested across three different browsers (Google Chrome, Safari, Firefox) on multiple mobile devices (iPhone 6, 7, 8, iPad, iPad Pro, Pixel, Pixel 2, Samsung Galaxy) to ensure compatibility and responsiveness. One particular except is the scatter plot which is not available on mobile. However, I did configure a show-for-landscape media query for tablet: ‘@media screen and (max-device-width: 800px) and (orientation: landscape)‘. This is a feature which I hope to integrate to mobile devices in the very immediate future.
 
 Deployment
 ---
